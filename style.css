@@ -198,6 +198,12 @@ a:hover {
     padding-left: 3rem;
     padding-right: 3rem;
   }
+    #welcome{
+        margin-top: -180px;
+    }
+    .swiper-wrapper{
+        margin-top: -190px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -912,4 +918,15 @@ iconify-icon.quote {
 }
 textarea{
     height: 200px;
+}
+
+.padding-large{
+    background-color: #E4C053;
+}
+.padding-large h3, p{
+    color: white;
+    font-weight: 500;
+}
+#footer{
+    background-color: #01579B;
 }
