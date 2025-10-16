@@ -124,3 +124,28 @@
     new DateTimePickerComponent.DatePicker('select-departure-date');
   });
 })(jQuery);
+
+$('.offcanvas .navbar-nav .nav-link').on('click', function(e) {
+  var href = $(this).attr('href');
+  if (href && href.startsWith('#')) {
+    e.preventDefault(); // Prevent default jump
+    var $offcanvas = $(this).closest('.offcanvas');
+    var offcanvasId = $offcanvas.attr('id');
+    if (offcanvasId) {
+      var offcanvasElem = document.getElementById(offcanvasId);
+      if (offcanvasElem) {
+        var bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasElem);
+        bsOffcanvas.hide();
+      }
+    }
+    // Wait for offcanvas to close then scroll
+    setTimeout(function(){
+      var target = $(href);
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 200);
+      }
+    }, 10); // Delay for offcanvas animation
+  }
+});
